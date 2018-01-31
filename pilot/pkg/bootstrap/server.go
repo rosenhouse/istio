@@ -41,6 +41,7 @@ import (
 	"istio.io/istio/pilot/pkg/proxy/envoy/mock"
 	"istio.io/istio/pilot/pkg/serviceregistry"
 	"istio.io/istio/pilot/pkg/serviceregistry/aggregate"
+	"istio.io/istio/pilot/pkg/serviceregistry/bosh"
 	"istio.io/istio/pilot/pkg/serviceregistry/cloudfoundry"
 	"istio.io/istio/pilot/pkg/serviceregistry/consul"
 	"istio.io/istio/pilot/pkg/serviceregistry/eureka"
@@ -63,6 +64,9 @@ const (
 	EurekaRegistry ServiceRegistry = "Eureka"
 	// CloudFoundryRegistry environment flag
 	CloudFoundryRegistry ServiceRegistry = "CloudFoundry"
+
+	// BoshRegistry environment flag
+	BoshRegistry ServiceRegistry = "Bosh"
 )
 
 var (
@@ -476,6 +480,26 @@ func (s *Server) initServiceControllers(args *PilotArgs) error {
 					ServicePort: cfConfig.ServicePort,
 				},
 				ServiceAccounts: cloudfoundry.NewServiceAccounts(),
+			})
+		case BoshRegistry:
+			boshConfig, err := bosh.LoadConfig()
+			if err != nil {
+				return multierror.Prefix(err, "loading bosh config")
+			}
+			client, err := bosh.NewClient(boshConfig)
+			if err != nil {
+				return multierror.Prefix(err, "creating bosh client")
+			}
+			serviceControllers.AddRegistry(aggregate.Registry{
+				Name: serviceregistry.ServiceRegistry(r),
+				Controller: &bosh.Controller{
+					Ticker: bosh.NewTicker(boshConfig.PollInterval),
+					Client: client,
+				},
+				ServiceDiscovery: &bosh.ServiceDiscovery{
+					Client: client,
+				},
+				ServiceAccounts: bosh.NewServiceAccounts(),
 			})
 
 		default:

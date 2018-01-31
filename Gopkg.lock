@@ -19,6 +19,12 @@
   version = "v0.18.0"
 
 [[projects]]
+  branch = "master"
+  name = "code.cloudfoundry.org/clock"
+  packages = ["."]
+  revision = "e9dc86bbf0e5bbe6bf7ff5a6f71e048959b61f71"
+
+[[projects]]
   name = "code.cloudfoundry.org/copilot"
   packages = [
     ".",
@@ -118,6 +124,12 @@
   revision = "4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9"
 
 [[projects]]
+  name = "github.com/bmatcuk/doublestar"
+  packages = ["."]
+  revision = "b3608229437ba4dc33dae64d56a79a2a73f1f6b2"
+  version = "v1.0.9"
+
+[[projects]]
   name = "github.com/cactus/go-statsd-client"
   packages = [
     "statsd",
@@ -125,6 +137,17 @@
   ]
   revision = "138b925ccdf617776955904ba7759fce64406cec"
   version = "v3.1.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/charlievieth/fs"
+  packages = ["."]
+  revision = "7dc373669fa10ddf827c37c595dee30a2f001be9"
+
+[[projects]]
+  name = "github.com/cheggaaa/pb"
+  packages = ["."]
+  revision = "c1f48d5ce4f292dfb775ef52aaedd15be323510d"
 
 [[projects]]
   name = "github.com/circonus-labs/circonus-gometrics"
@@ -144,6 +167,29 @@
   revision = "1e65893c445875524c5610f2a58aef24e30ef98a"
 
 [[projects]]
+  name = "github.com/cloudfoundry/bosh-cli"
+  packages = [
+    "director",
+    "ui",
+    "ui/fmt",
+    "ui/table"
+  ]
+  revision = "f58b3a1827c1f4359397485d781c16f102e4b430"
+
+[[projects]]
+  name = "github.com/cloudfoundry/bosh-utils"
+  packages = [
+    "crypto",
+    "errors",
+    "httpclient",
+    "logger",
+    "retrystrategy",
+    "system",
+    "uuid"
+  ]
+  revision = "a960ab178e64b43d19051be6fd2891ff695bb206"
+
+[[projects]]
   branch = "master"
   name = "github.com/codahale/hdrhistogram"
   packages = ["."]
@@ -154,6 +200,12 @@
   name = "github.com/coreos/go-oidc"
   packages = ["."]
   revision = "065b426bd41667456c1a924468f507673629c46b"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/cppforlife/go-semi-semantic"
+  packages = ["version"]
+  revision = "576b6af77ae4f3ccef356902fb3b9a9ae22e0b11"
 
 [[projects]]
   name = "github.com/cpuguy83/go-md2man"
@@ -189,6 +241,12 @@
   revision = "5cb406d511b7b9163bff9b6439072e4892e5ae3b"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/dustin/go-humanize"
+  packages = ["."]
+  revision = "bb3d318650d48840a39aa21a027c6630e198e626"
+
+[[projects]]
   name = "github.com/emicklei/go-restful"
   packages = [
     ".",
@@ -205,6 +263,12 @@
     "pkg/server"
   ]
   revision = "cd217031c55a80342a864f9aff3b7a7f22205891"
+
+[[projects]]
+  name = "github.com/fatih/color"
+  packages = ["."]
+  revision = "570b54cabe6b8eb0bc2dfce68d964677d63b5260"
+  version = "v1.5.0"
 
 [[projects]]
   name = "github.com/fluent/fluent-logger-golang"
@@ -397,7 +461,7 @@
     "openstack/utils",
     "pagination"
   ]
-  revision = "4a3f5ae58624b68283375060dad06a214b05a32b"
+  revision = "a924af7658c466bf641b255397766fd4f4889189"
 
 [[projects]]
   name = "github.com/gorilla/context"
@@ -559,6 +623,18 @@
   revision = "32fa128f234d041f196a9f3e0fea5ac9772c08e1"
 
 [[projects]]
+  name = "github.com/mattn/go-colorable"
+  packages = ["."]
+  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
+  version = "v0.0.9"
+
+[[projects]]
+  name = "github.com/mattn/go-isatty"
+  packages = ["."]
+  revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
+  version = "v0.0.3"
+
+[[projects]]
   name = "github.com/matttproud/golang_protobuf_extensions"
   packages = ["pbutil"]
   revision = "3247c84500bff8d9fb6d579d800f20b3e091582c"
@@ -575,6 +651,12 @@
   packages = ["."]
   revision = "a96e63847dc3c67d17befa69c303767e2f84e54f"
   version = "v2.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/nu7hatch/gouuid"
+  packages = ["."]
+  revision = "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
 
 [[projects]]
   name = "github.com/onsi/ginkgo"
@@ -657,6 +739,12 @@
   packages = ["."]
   revision = "bb6d471dc95d4fe11e432687f8b70ff496cf3136"
   version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/pivotal-cf/paraphernalia"
+  packages = ["secure/tlsconfig"]
+  revision = "4272315231ce0d2636eeb44ed0479e56ca165581"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -793,6 +881,15 @@
   version = "v1.3.1"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/vito/go-interact"
+  packages = [
+    "interact",
+    "interact/terminal"
+  ]
+  revision = "fa338ed9e9ecbb0e9c2e6c7a0160d9fc9b0efbd9"
+
+[[projects]]
   name = "go.uber.org/atomic"
   packages = ["."]
   revision = "8474b86a5a6f79c443ce4b2992817ff32cf208b8"
@@ -822,10 +919,14 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = [
+    "curve25519",
     "ed25519",
     "ed25519/internal/edwards25519",
+    "internal/chacha20",
     "pbkdf2",
+    "poly1305",
     "scrypt",
+    "ssh",
     "ssh/terminal"
   ]
   revision = "1875d0a70c90e57f11972aefd42276df65e895b9"
@@ -844,6 +945,7 @@
     "idna",
     "internal/timeseries",
     "lex/httplex",
+    "proxy",
     "trace"
   ]
   revision = "0ed95abb35c445290478a5348a7b38bb154135fd"
@@ -942,7 +1044,7 @@
     "transport/grpc",
     "transport/http"
   ]
-  revision = "1a260eb4fee522e1504ed84285a054de9b65e458"
+  revision = "7d0e2d350555821bef5a5b8aecf0d12cc1def633"
 
 [[projects]]
   name = "google.golang.org/appengine"
@@ -1182,7 +1284,7 @@
     "pkg/features",
     "pkg/util/feature"
   ]
-  revision = "1bf7de8f04f0b4d4274581e73a27bf850617b49a"
+  revision = "f5be0e0c93c8186b32ea3960fdc70ec265186fae"
 
 [[projects]]
   branch = "release-6.0"
@@ -1335,11 +1437,11 @@
     "pkg/util/parsers",
     "pkg/util/pointer"
   ]
-  revision = "58bd73b356c730eeb00c48095de1f9e3a30f7c20"
+  revision = "8257bd26c8e19ce5a86ec3d6d1f8ec6cd21e0546"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "03d5d5d44656f6beb6ef793749262b8d33430acaee90bcaacde1d06fbb425958"
+  inputs-digest = "acc22b96fee0325b6ab723324172d8e0da2532ece1dde681f37063601a18c6f1"
   solver-name = "gps-cdcl"
   solver-version = 1
