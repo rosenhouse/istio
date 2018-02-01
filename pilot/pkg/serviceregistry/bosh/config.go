@@ -15,6 +15,7 @@ type Config struct {
 	ClientSecret   string
 	Host           string
 	PollInterval   time.Duration
+	TLD            string
 }
 
 // LoadConfig reads configuration data from the environment
@@ -39,6 +40,10 @@ func LoadConfig() (*Config, error) {
 		cfg.Host = "192.168.50.6"
 	}
 	cfg.PollInterval = 10 * time.Second
+	cfg.TLD = os.Getenv("PILOT_BOSH_TLD")
+	if cfg.TLD == "" {
+		cfg.TLD = "boshy"
+	}
 
 	return cfg, nil
 }

@@ -17,6 +17,8 @@ type Client struct {
 
 	virtualIPs VIPStore
 
+	tld string
+
 	mu                sync.Mutex
 	cachedFrom        time.Time
 	allInstancesCache map[Hostname]*ServiceWithInstances
@@ -45,6 +47,7 @@ func NewClient(cfg *Config) (*Client, error) {
 	return &Client{
 		Director:   directorClient,
 		virtualIPs: NewVIPStore(),
+		tld:        cfg.TLD,
 	}, err
 }
 
@@ -175,7 +178,7 @@ func (c *Client) GetServiceInstances(deploymentName DeploymentName,
 	instanceGroup InstanceGroup,
 ) (map[Hostname]*ServiceWithInstances, error) {
 
-	dnsSuffix := fmt.Sprintf("%s.%s.boshy", instanceGroupName, deploymentName)
+	dnsSuffix := fmt.Sprintf("%s.%s.%s", instanceGroupName, deploymentName, c.tld)
 	servicesMap := make(map[Hostname]*ServiceWithInstances)
 
 	for _, vmInfo := range instanceGroup.VMs {
