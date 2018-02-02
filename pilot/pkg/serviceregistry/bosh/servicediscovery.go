@@ -79,7 +79,9 @@ func (sd *ServiceDiscovery) HostInstances(addrs map[string]*model.Node) ([]*mode
 
 	for _, svcWithInstances := range servicesMap {
 		for _, instance := range svcWithInstances.Instances {
-			instances = append(instances, instance)
+			if _, ok := addrs[instance.Endpoint.Address]; ok {
+				instances = append(instances, instance)
+			}
 		}
 	}
 
